@@ -17,6 +17,6 @@ This is a simple example of how to log HTTP headers.
 graph TD;
     Client-->CustomConnector;
     CustomConnector-->On-PremisesDataGatewayServer;
-    PremisesDataGatewayServer-->OpenResty;
+    On-PremisesDataGatewayServer-->OpenResty;
     OpenResty-->RemoteServer;
 ```
