@@ -12,4 +12,11 @@ This is a simple example of how to log HTTP headers.
 - http://nginx.org/en/docs/http/ngx_http_core_module.html#large_client_header_buffers
 - https://stackoverflow.com/questions/686217/maximum-on-http-header-values
 
-### flow chart
+### Flow chart
+```mermaid
+graph TD;
+    Client-->CustomConnector;
+    CustomConnector-->On-PremisesDataGatewayServer;
+    PremisesDataGatewayServer-->OpenResty;
+    OpenResty-->RemoteServer;
+```
