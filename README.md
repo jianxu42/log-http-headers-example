@@ -1,7 +1,7 @@
 # log-http-headers-example
 
 ## Description
-This is a simple example of how to log HTTP headers with On-Premises Data Gateway & OpenResty | HTTP Custom Proxy(by Rust)
+This is a simple example of how to log HTTP headers with On-Premises Data Gateway & OpenResty | Custom HTTP Proxy(by Rust)
 ***
 
 ### Related documentations
