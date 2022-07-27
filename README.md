@@ -22,6 +22,6 @@ By using proxy, you can log HTTP headers, either with reverse proxy or forward p
 graph TD;
     Client-->CustomConnector;
     CustomConnector-->On-PremisesDataGatewayServer;
-    On-PremisesDataGatewayServer-->OpenResty|CustomHttpProxy;
-    OpenResty|CustomHttpProxy-->RemoteServer;
+    On-PremisesDataGatewayServer-->OpenRestyOrCustomHttpProxy;
+    OpenRestyOrCustomHttpProxy-->RemoteServer;
 ```
