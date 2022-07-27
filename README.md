@@ -1,7 +1,7 @@
 # log-http-headers-example
 
 ## Description
-This is a simple example of how to log HTTP headers.
+This is a simple example of how to log HTTP headers with On-Premises Data Gateway & OpenResty | HTTP Custom Proxy(by Rust)
 ***
 
 ### Related documentations
@@ -11,6 +11,7 @@ This is a simple example of how to log HTTP headers.
 - https://httpd.apache.org/docs/2.2/mod/core.html#limitrequestfieldsize
 - http://nginx.org/en/docs/http/ngx_http_core_module.html#large_client_header_buffers
 - https://stackoverflow.com/questions/686217/maximum-on-http-header-values
+- https://docs.microsoft.com/en-us/data-integration/gateway/service-gateway-proxy
 
 ### Flow chart
 ```mermaid
