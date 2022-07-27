@@ -1,7 +1,7 @@
 //! Run with
 //!
 //! ```not_rust
-//! $ cargo run -p example-http-proxy
+//! $ cargo run -p http_proxy
 //! ```
 //!
 //! In another terminal:
