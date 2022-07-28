@@ -4,7 +4,7 @@
 This is a simple example of how to log HTTP headers with On-Premises Data Gateway & OpenResty | Custom HTTP Proxy(by Rust)
 ***
 
-### Why?
+### What?
 - https://stackoverflow.com/questions/686217/maximum-on-http-header-values
 - https://docs.microsoft.com/en-us/iis/configuration/system.webserver/security/requestfiltering/requestlimits/headerlimits/
 - https://httpd.apache.org/docs/2.2/mod/core.html#limitrequestfieldsize
