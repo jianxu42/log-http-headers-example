@@ -60,7 +60,6 @@ async fn main() {
 }
 
 async fn proxy(req: Request<Body>) -> Result<Response, hyper::Error> {
-    tracing::trace!(?req);
 
     if let Some(host_addr) = req.uri().authority().map(|auth| auth.to_string()) {
         tokio::task::spawn(async move {
