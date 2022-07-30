@@ -11,7 +11,7 @@
 //! ```
 //!
 //! Please note it only supports HTTPS requests.
-//! 
+//!
 //! Example is based on <https://github.com/hyperium/hyper/blob/master/examples/http_proxy.rs>
 
 use axum::{
@@ -23,7 +23,7 @@ use axum::{
 };
 use hyper::upgrade::Upgraded;
 use std::net::SocketAddr;
-use tokio::net::TcpStream;
+use tokio::{io::AsyncWriteExt, net::TcpStream};
 use tower::{make::Shared, ServiceExt};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
@@ -64,7 +64,6 @@ async fn main() {
 }
 
 async fn proxy(req: Request<Body>) -> Result<Response, hyper::Error> {
-
     if let Some(host_addr) = req.uri().authority().map(|auth| auth.to_string()) {
         tokio::task::spawn(async move {
             match hyper::upgrade::on(req).await {
@@ -101,6 +100,7 @@ async fn tunnel(mut upgraded: Upgraded, addr: String) -> std::io::Result<()> {
         from_client,
         from_server
     );
-
+    server.shutdown().await?;
+    
     Ok(())
 }
