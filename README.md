@@ -15,6 +15,7 @@ By using proxy, you can log HTTP headers, either with reverse proxy or forward p
 - https://docs.microsoft.com/en-us/data-integration/gateway/service-gateway-proxy
 - https://openresty.org/en/
 - https://openresty-reference.readthedocs.io/en/latest/Lua_Nginx_API/?msclkid=3a3751e6ae5911ec9274aad06d857d21#ngxreqget_headers
+- https://httpwg.org/specs/rfc7231.html#CONNECT
 
 
 ### Flow chart

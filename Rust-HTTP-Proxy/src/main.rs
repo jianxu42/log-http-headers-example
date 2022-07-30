@@ -10,6 +10,8 @@
 //! $ curl -v -x "127.0.0.1:3000" https://tokio.rs
 //! ```
 //!
+//! Please note it only supports HTTPS requests.
+//! 
 //! Example is based on <https://github.com/hyperium/hyper/blob/master/examples/http_proxy.rs>
 
 use axum::{
