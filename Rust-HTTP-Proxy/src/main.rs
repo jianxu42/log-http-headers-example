@@ -43,6 +43,7 @@ async fn main() {
             if req.method() == Method::CONNECT {
                 proxy(req).await
             } else {
+                tracing::error!("Unsupported method: {}", req.method());
                 router.oneshot(req).await.map_err(|err| match err {})
             }
         }
@@ -65,6 +66,7 @@ async fn proxy(req: Request<Body>) -> Result<Response, hyper::Error> {
         tokio::task::spawn(async move {
             match hyper::upgrade::on(req).await {
                 Ok(upgraded) => {
+                    tracing::debug!("{:?}", upgraded);
                     if let Err(e) = tunnel(upgraded, host_addr).await {
                         tracing::warn!("server io error: {}", e);
                     };
@@ -86,6 +88,7 @@ async fn proxy(req: Request<Body>) -> Result<Response, hyper::Error> {
 
 async fn tunnel(mut upgraded: Upgraded, addr: String) -> std::io::Result<()> {
     let mut server = TcpStream::connect(addr).await?;
+    tracing::trace!("{:#?}", server);
 
     let (from_client, from_server) =
         tokio::io::copy_bidirectional(&mut upgraded, &mut server).await?;
