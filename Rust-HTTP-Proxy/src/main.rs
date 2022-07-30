@@ -42,9 +42,11 @@ async fn main() {
     let service = tower::service_fn(move |req: Request<Body>| {
         let router = router.clone();
         async move {
+            // if it's HTTPS request, we'll upgrade to a TCP connection and proxy the request
             if req.method() == Method::CONNECT {
                 proxy(req).await
             } else {
+                // otherwise, we'll just drop the request
                 tracing::error!("Unsupported method: {}", req.method());
                 router.oneshot(req).await.map_err(|err| match err {})
             }
