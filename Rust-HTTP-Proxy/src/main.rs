@@ -10,8 +10,6 @@
 //! $ curl -v -x "127.0.0.1:3000" https://tokio.rs
 //! ```
 //!
-//! Please note it only supports HTTPS requests.
-//!
 //! Example is based on <https://github.com/hyperium/hyper/blob/master/examples/http_proxy.rs>
 
 use axum::{
@@ -46,8 +44,6 @@ async fn main() {
             if req.method() == Method::CONNECT {
                 proxy(req).await
             } else {
-                // otherwise, we'll just drop the request
-                tracing::error!("Unsupported method: {}", req.method());
                 router.oneshot(req).await.map_err(|err| match err {})
             }
         }
